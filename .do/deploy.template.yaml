@@ -2,9 +2,9 @@ spec:
   alerts:
     - rule: DEPLOYMENT_FAILED
     - rule: DOMAIN_FAILED
-  name: n8n-app-do
+  name: trax
   services:
-    - name: n8n-app-do
+    - name: trax
       build_command: npm install
       environment_slug: node-js
       envs:
@@ -33,7 +33,7 @@ spec:
           value: ${n8n-db.CA_CERT}
       git:
         branch: master
-        repo_clone_url: https://github.com/johnkraczek/n8n-app-do.git
+        repo_clone_url: https://github.com/domeraki/n8n.git
       http_port: 5678
       instance_count: 1
       instance_size_slug: basic-xxs
