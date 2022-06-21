@@ -1,5 +1,5 @@
 {
-  "name": "n8n-do",
+  "name": "n8n-trax",
   "version": "1.0.0",
   "description": "App installer for n8n",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "John Kraczek",
+  "author": "abe sal",
   "license": "ISC",
   "dependencies": {
     "n8n": "0.183.0"
