@@ -1,0 +1,45 @@
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+name: n8n-app-do
+services:
+  - name: n8n-app-do
+    build_command: npm install
+    environment_slug: node-js
+    envs:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "false"
+      - key: N8N_BASIC_AUTH_USER
+        value: ht-user
+      - key: N8N_BASIC_AUTH_PASSWORD
+        type: SECRET
+        value: "Ch@ngeMe!"
+      - key: WEBHOOK_URL
+        value: ${_self.PUBLIC_URL}
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_DATABASE
+        value: ${n8n-db.DATABASE}
+      - key: DB_POSTGRESDB_HOST
+        value: "${n8n-db.HOSTNAME}"
+      - key: DB_POSTGRESDB_PORT
+        value: ${n8n-db.PORT}
+      - key: DB_POSTGRESDB_USER
+        value: ${n8n-db.USERNAME}
+      - key: DB_POSTGRESDB_PASSWORD
+        value: ${n8n-db.PASSWORD}
+      - key: DB_POSTGRESDB_SSL_CA
+        value: ${n8n-db.CA_CERT}
+    git:
+      branch: master
+      repo_clone_url: https://github.com/johnkraczek/n8n-app-do.git
+    http_port: 5678
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /
+    run_command: ./node_modules/n8n/bin/n8n
+databases:
+  - name: "n8n-db"
+    engine: PG
+    production: false

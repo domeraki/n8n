@@ -1,0 +1,19 @@
+{
+  "name": "n8n-do",
+  "version": "1.0.0",
+  "description": "App installer for n8n",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/n8n/bin/n8n",
+    "build": "npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Kraczek",
+  "license": "ISC",
+  "dependencies": {
+    "n8n": "0.183.0"
+  },
+  "engines": {
+    "node": "v16.x"
+  }
+}
